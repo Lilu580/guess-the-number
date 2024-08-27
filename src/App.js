@@ -7,7 +7,7 @@ function App() {
   const [gameOver, setGameOver] = useState(false);
 
   const handleGuess = async () => {
-    const response = await axios.post('http://localhost:5000/guess', { number: guess });
+    const response = await axios.post('https://guess-the-number-backend-bm2d.onrender.com/guess', { number: guess });
     setResult(response.data.message);
     if (response.data.message === 'Число вгадано') {
       setGameOver(true);
@@ -15,7 +15,7 @@ function App() {
   };
 
   const startNewGame = async () => {
-    await axios.post('http://localhost:5000/start_game');
+    await axios.post('https://guess-the-number-backend-bm2d.onrender.com/start_game');
     setResult('');
     setGameOver(false);
     setGuess('');
@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     startNewGame();
-  }, []); // Порожній масив залежностей гарантує, що цей ефект виконається тільки один раз при монтуванні компонента
+  }, []); 
 
   return (
     <div>
