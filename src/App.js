@@ -14,6 +14,8 @@ function App() {
     setResult(response.data.message);
     if (response.data.message === 'Число вгадано') {
       setGameOver(true);
+    } else {
+      setGuess(0)
     }
   };
 
